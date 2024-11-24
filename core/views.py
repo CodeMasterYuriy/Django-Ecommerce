@@ -104,7 +104,6 @@ class PaymentView(View):
             messages.error(self.request, "Serious Error occured")
             return redirect("/")
 
-
 class HomeView(ListView):
     template_name = "index.html"
     queryset = Item.objects.filter(is_active=True)
@@ -345,7 +344,7 @@ class AddCouponView(View):
                 return redirect("core:checkout")
 
             except ObjectDoesNotExist:
-                messages.info(request, "You do not have an active order")
+                # messages.info(request, "You do not have an active order")
                 return redirect("core:checkout")
 
 
